@@ -2,6 +2,7 @@ import {
   View, Text, Image, StyleSheet,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { DishListItem } from '../../components';
 import restaurants from '../../data/restaurants.json';
 
 const restaurant = restaurants[0];
@@ -21,8 +22,13 @@ function RestaurantDetailsSCreen() {
         <Text style={styles.subtitle}>
           {`$ ${restaurant.deliveryFee} - ${restaurant.minDeliveryTime}-${restaurant.maxDeliveryTime} minutes`}
         </Text>
-
       </View>
+      <DishListItem
+        dishName={restaurant.dishes[0].name}
+        description={restaurant.dishes[0].description}
+        price={restaurant.dishes[0].price}
+        image={restaurant.dishes[0].image}
+      />
     </View>
   );
 }

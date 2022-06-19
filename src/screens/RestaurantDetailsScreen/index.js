@@ -1,5 +1,5 @@
 import {
-  View, StyleSheet, FlatList,
+  View, FlatList,
 } from 'react-native';
 import { DishListItem } from '../../components';
 import { Header } from './components';
@@ -9,7 +9,7 @@ const restaurant = restaurants[0];
 
 function RestaurantDetailsSCreen() {
   return (
-    <View style={styles.page}>
+    <View style={{ flex: 1 }}>
       <FlatList
         data={restaurant.dishes}
         ListHeaderComponent={Header}
@@ -25,11 +25,5 @@ function RestaurantDetailsSCreen() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  page: {
-    flex: 1,
-  },
-});
 
 export default RestaurantDetailsSCreen;

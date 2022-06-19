@@ -21,6 +21,7 @@ function Header() {
         <Text style={styles.subtitle}>
           {`$ ${restaurant.deliveryFee} - ${restaurant.minDeliveryTime}-${restaurant.maxDeliveryTime} minutes`}
         </Text>
+        <Text style={styles.menuTitle}>Menu</Text>
       </View>
 
     </View>
@@ -42,6 +43,11 @@ const styles = StyleSheet.create({
   subtitle: {
     color: 'grey',
     fontSize: 15,
+  },
+  menuTitle: {
+    fontSize: 18,
+    marginTop: 20,
+    letterSpacing: 0.7,
   },
   name: {
     fontSize: 35,

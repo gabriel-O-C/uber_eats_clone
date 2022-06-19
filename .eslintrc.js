@@ -23,5 +23,6 @@ module.exports = {
     'react/style-prop-object': 'off',
     'no-use-before-define': 'off',
     'import/prefer-default-export': 'off',
+    'react/jsx-no-bind': 'off',
   },
 };

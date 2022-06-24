@@ -1,13 +1,16 @@
 import {
-  View, Text, StyleSheet, Image,
+  View, Text, StyleSheet, Image, Pressable,
 } from 'react-native';
 import Proptypes from 'prop-types';
+import { useNavigation } from '@react-navigation/native';
 
 function DishListItem({
-  dishName, description, price, image,
+  dishName, description, price, image, id,
 }) {
+  const navigation = useNavigation();
+
   return (
-    <View style={styles.container}>
+    <Pressable onPress={() => navigation.navigate('Dish', { id })} style={styles.container}>
       <View style={{ flex: 1 }}>
         <Text style={styles.name}>{dishName}</Text>
         <Text style={styles.description} numberOfLines={2}>{description}</Text>
@@ -19,7 +22,7 @@ function DishListItem({
           style={styles.image}
         />
       )}
-    </View>
+    </Pressable>
   );
 }
 
@@ -55,6 +58,8 @@ DishListItem.propTypes = {
   dishName: Proptypes.string.isRequired,
   description: Proptypes.string.isRequired,
   price: Proptypes.number.isRequired,
+  id: Proptypes.number.isRequired,
+
   image: Proptypes.string,
 };
 

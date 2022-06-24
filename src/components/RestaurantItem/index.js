@@ -1,13 +1,18 @@
 import {
-  StyleSheet, View, Image, Text,
+  StyleSheet, View, Image, Text, Pressable,
 } from 'react-native';
 import PropTypes from 'prop-types';
+import { useNavigation } from '@react-navigation/native';
 
 function RestaurantItem({
-  sourceImage, title, subtitle, rating,
+  sourceImage, title, subtitle, rating, id,
 }) {
+  const navigation = useNavigation();
+  function handlePress() {
+    navigation.navigate('RestaurantDetailsScreen', { id });
+  }
   return (
-    <View style={styles.restaurantContainer}>
+    <Pressable onPress={handlePress} style={styles.restaurantContainer}>
       <Image
         style={styles.image}
         source={{ uri: sourceImage }}
@@ -23,7 +28,7 @@ function RestaurantItem({
         </View>
 
       </View>
-    </View>
+    </Pressable>
   );
 }
 
@@ -65,6 +70,7 @@ RestaurantItem.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   rating: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default RestaurantItem;

@@ -1,18 +1,22 @@
 import {
-  View, Text, Image, StyleSheet,
+  View, Text, Image, StyleSheet, Pressable,
 } from 'react-native';
 import PropTypes from 'prop-types';
+import { useNavigation } from '@react-navigation/native';
 
-function OrderListItem({ image, restaurantName, status }) {
+function OrderListItem({
+  image, restaurantName, status, id,
+}) {
+  const navigation = useNavigation();
   return (
-    <View style={styles.page}>
+    <Pressable onPress={() => navigation.navigate('Order', { id })} style={styles.page}>
       <Image style={styles.image} source={{ uri: image }} />
       <View>
         <Text style={styles.name}>{restaurantName}</Text>
         <Text>3 items - $32.12</Text>
         <Text>{`2 days ago - ${status}`}</Text>
       </View>
-    </View>
+    </Pressable>
   );
 }
 
@@ -37,6 +41,7 @@ OrderListItem.propTypes = {
   image: PropTypes.string.isRequired,
   restaurantName: PropTypes.string.isRequired,
   status: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default OrderListItem;

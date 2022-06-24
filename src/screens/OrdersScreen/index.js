@@ -1,5 +1,5 @@
 import {
-  View, Text, FlatList, StyleSheet,
+  View, FlatList, StyleSheet,
 } from 'react-native';
 import { OrderListItem } from '../../components';
 import orders from '../../data/orders.json';
@@ -14,6 +14,7 @@ function OrdersScreen() {
             image={item.Restaurant.image}
             restaurantName={item.Restaurant.name}
             status={item.status}
+            id={item.id}
           />
         )}
       />

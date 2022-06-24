@@ -10,6 +10,7 @@ export default function HomeScreen() {
         renderItem={({ item }) => (
           <RestaurantItem
             key={item.id}
+            id={item.id}
             sourceImage={item.image}
             title={item.name}
             subtitle={`$ ${item.deliveryFee} - ${item.minDeliveryTime}-${item.maxDeliveryTime} minutes`}

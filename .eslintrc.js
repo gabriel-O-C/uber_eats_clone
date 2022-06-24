@@ -24,5 +24,6 @@ module.exports = {
     'no-use-before-define': 'off',
     'import/prefer-default-export': 'off',
     'react/jsx-no-bind': 'off',
+    'react/no-unstable-nested-components': 'off',
   },
 };
